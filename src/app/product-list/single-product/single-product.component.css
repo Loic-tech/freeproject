@@ -1,0 +1,86 @@
+body{
+  overflow-y: hidden;
+}
+
+.container{
+  display: flex;
+}
+
+.left{
+  margin-left: 3cm;
+  text-align: center;
+}
+
+.form-control{
+  margin-top: 1cm;
+  padding: 12px;
+  width: 30%;
+}
+
+img {
+  width: 13cm;
+  height: 11cm;
+  padding: 5px;
+  margin-top: 5rem;
+
+}
+
+.desc{
+  height: 450px;
+  width: 500px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.right{
+ display: block;
+  width: 40%;
+}
+.az {
+  flex: 6;
+  display: block;
+  margin-top: 70px;
+  margin-left: 3em;
+  font-weight: bold;
+}
+
+details > summary{
+  list-style: none;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.details{
+  margin-top: 2rem;
+}
+
+details > summary::-webkit-details-marker{
+  display: none;
+}
+
+.icon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price{
+  margin-top: 2rem;
+}
+
+summary {
+  width: 100%;
+}
+
+.xo{
+ background-color: black;
+  color: white;
+  width: 60%;
+  border: 1px solid black;
+  margin-top: 2rem;
+  padding: 12px;
+}
+
+
+

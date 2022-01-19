@@ -17,6 +17,12 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { HerosectionComponent } from './herosection/herosection.component';
 import { ShopComponent } from './shop/shop.component';
+import {NotifierModule} from "angular-notifier";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
+import { CheckoutComponent } from './checkout/checkout.component';
+import { FaqComponent } from './faq/faq.component';
+import {NgHttpLoaderModule} from "ng-http-loader";
 
 
 const appRoutes: Routes = [
@@ -28,6 +34,8 @@ const appRoutes: Routes = [
   {path: 'shopping', component: ShopComponent},
   {path: 'products/view/:id', component: SingleProductComponent},
   {path: 'about', component: FooterComponent},
+  {path: 'check', component: CheckoutComponent},
+  {path: 'faq', component: FaqComponent},
   {path: '**', redirectTo: 'home'}
 ];
 
@@ -42,14 +50,20 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     HerosectionComponent,
-    ShopComponent
+    ShopComponent,
+    CheckoutComponent,
+    FaqComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NotifierModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgHttpLoaderModule.forRoot()
   ],
   providers: [
     AuthService,

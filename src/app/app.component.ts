@@ -11,6 +11,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class AppComponent implements OnInit{
 
   public Products!: Product[];
+  myNumber!: number;
 
   constructor(private productService: ProductsService) {}
 
@@ -29,4 +30,7 @@ export class AppComponent implements OnInit{
     );
   }
 
+  numberInCard(event: number) {
+    this.myNumber = event;
+  }
 }

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li,a,button {
+  font-weight: 400;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+
+.sign h5{
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+
+.sign h5:hover{
+  color: yellow;
+}
+
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+
+}
+
+.nav__link{
+  list-style: none;
+}
+
+.nav__link li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__link li a{
+  transition: all 0.3s ease 0s;
+}
+
+.nav__link li a:hover{
+  color: blue;
+}
+
+button{
+  padding: 9px 25px;
+  color: #7451eb;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s ;
+}
+
+i{
+  width: 30px;
+
+}
+
+span{
+  font-weight: bold;
+  margin-left: 0.10cm;
+}
+
+

@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+<div class="container-fluid" style="align-content: space-between">
+  <div *ngIf="cart.length === 0">
+    <h1 class="text-danger" style="text-align: center">
+      EMPTY CARD 😢
+    </h1>
+  </div>
+  <div>
+    <div class="card" style="height: 50%; width: 60%; left: 8cm;" *ngFor="let item of cart">
+      <ul style="display: flex; justify-content: space-between;align-items: baseline">
+        <li><p class="change-height" style="font-weight: 500;"> Article : <img style="width: 30%" src="{{ item.product.image}}" alt="image"></p></li>
+        <li><p style="font-weight: 500;"> Quantity: {{ item.quantity }}</p></li>
+        <li><p style="font-weight: 500"> Price : {{  item.product.price | currency: 'EUR'}} </p></li>
+      </ul>
+    </div>
+    <h1 style="text-align: center;left: 1cm;"><p style="color: red">TOTAL : {{ total | currency: 'EUR'}}
+      <a routerLink="/check"><i class="fab fa-amazon-pay"></i></a>
+    </p>
+    </h1>
+  </div>
+  <ng-http-loader
+    [backgroundColor]="'#000000'"
+    [extraDuration]="2000"
+    [spinner]="spinnerStyle.skWave">
+  </ng-http-loader>
+</div>
+
+
