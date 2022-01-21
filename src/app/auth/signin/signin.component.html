@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="signin.component.css">
+  <title>Document</title>
+</head>
+<body>
+<div class="login-form">
+  <h1 align="center">Connexion</h1>
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+
+    <div class="login-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" class="form-control" formControlName="username"
+             [ngClass]="{'is-invalid' : f.username.errors && test, 'is-valid' : f.username.valid && test }">
+      <div class="text-danger" *ngIf="f.username.errors && test">
+        <div style="color: red;" *ngIf="f.username.errors.required">
+          username Required !
+        </div>
+        <div *ngIf="f.username.errors.minlength">
+          at least four (4) characters !
+        </div>
+      </div>
+    </div>
+
+    <div class="login-form">
+      <label for="password">Password</label>
+      <input type="password" id="password" class="form-control" formControlName="password"
+             [ngClass]="{ 'is-invalid': test && f.password.errors }">
+      <div style="color: red; "*ngIf="test && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+    </div>
+    <button type="submit">
+      <a>Sign up </a>
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+    </button>
+  </form>
+  <p class="alert" role="alert" style="color: red;" *ngIf="isLoginFailed">bad credentials</p>
+</div>
+</body>
+</html>
+

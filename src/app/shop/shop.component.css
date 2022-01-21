@@ -28,3 +28,10 @@ p {
   background-color: #f8f9fa
 }
 
+.appears-item {
+  opacity: 0;
+}
+
+ul:hover .appears-item {
+  opacity: 1;
+}

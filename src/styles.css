@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-weight: bold;
+}
 html {
   overflow-x: hidden !important;
 }

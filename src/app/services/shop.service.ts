@@ -29,5 +29,9 @@ export class ShopService {
     return this.http.get<number>(`${this.apiServerUrl}/shop/count/${id}`);
   }
 
+  public deleteItemInTheCart(id: string): Observable<any> {
+    return this.http.delete(`${this.apiServerUrl}/shop/cart/${id}`);
+  }
+
 
 }

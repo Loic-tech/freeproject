@@ -10,6 +10,7 @@ import {AuthService} from "../../services/auth.service";
 import {NotifierService} from "angular-notifier";
 import {ToastrService} from "ngx-toastr";
 import {Spinkit} from "ng-http-loader";
+import {User} from "../../Models/User.model";
 
 @Component({
   selector: 'app-single-product',
@@ -27,6 +28,7 @@ export class SingleProductComponent implements OnInit {
   test: boolean = false;
   element: number = parseInt(<string>localStorage.getItem('quantity'));
   spinnerStyle = Spinkit;
+  user = JSON.parse(<string>localStorage.getItem('info-user'));
 
   constructor(private route: ActivatedRoute,
               public productService: ProductsService,
@@ -41,6 +43,7 @@ export class SingleProductComponent implements OnInit {
     this.productService.getProductById(this.id).subscribe(
       data => {
         this.product = data;
+        localStorage.setItem('product',JSON.stringify(this.product));
       },
       error => {
         console.log(error);
@@ -49,15 +52,11 @@ export class SingleProductComponent implements OnInit {
   }
 
   public addCart(){
-
     this.test = true;
-    // @ts-ignore
-    this.ide = window.sessionStorage.getItem('auth-user').substring(209, 233);
-    console.log(this.ide);
-    this.cart = new ShopModel(this.ide, this.product, this.valueNumber);
+    //console.log(this.user.id);
+    this.cart = new ShopModel(this.id,this.user.id.toString(), this.product, this.valueNumber);
    this.shop.addToCart(this.cart).subscribe(
       data =>{
-          console.log(data);
           this.toasterItem.success('Successfully Added 😊!','Infos');
           this.test = false;
           localStorage.setItem('quantity',String(this.element + this.valueNumber));

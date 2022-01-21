@@ -6,11 +6,12 @@
     </h1>
   </div>
   <div>
-    <div class="card" style="height: 50%; width: 60%; left: 8cm;" *ngFor="let item of cart">
+    <div class="card" style="height: 50%; width: 50%; left: 8cm;margin: 0;padding: 0" *ngFor="let item of cart">
       <ul style="display: flex; justify-content: space-between;align-items: baseline">
         <li><p class="change-height" style="font-weight: 500;"> Article : <img style="width: 30%" src="{{ item.product.image}}" alt="image"></p></li>
         <li><p style="font-weight: 500;"> Quantity: {{ item.quantity }}</p></li>
         <li><p style="font-weight: 500"> Price : {{  item.product.price | currency: 'EUR'}} </p></li>
+        <li class="appears-item"><p (click)="deleteItemInTheCard(item.id)"><i class="fas fa-trash-alt" style="cursor: pointer"></i></p></li>
       </ul>
     </div>
     <h1 style="text-align: center;left: 1cm;"><p style="color: red">TOTAL : {{ total | currency: 'EUR'}}
@@ -20,7 +21,7 @@
   </div>
   <ng-http-loader
     [backgroundColor]="'#000000'"
-    [extraDuration]="2000"
+    [extraDuration]="500"
     [spinner]="spinnerStyle.skWave">
   </ng-http-loader>
 </div>

@@ -15,11 +15,9 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class SignupComponent implements OnInit {
 
   public signUpForm!: FormGroup;
-
   user: User | undefined;
   errorMessage!: string;
   test: boolean = false;
-
 
   constructor(
     private formBuilder: FormBuilder,

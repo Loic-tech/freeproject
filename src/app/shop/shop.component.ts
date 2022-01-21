@@ -20,6 +20,7 @@ export class ShopComponent implements OnInit {
   total: number = 0;
   quantity: number = 0;
   spinnerStyle = Spinkit;
+  user = JSON.parse(<string>localStorage.getItem('info-user'));
 
   constructor(
     private route: ActivatedRoute,
@@ -32,7 +33,8 @@ export class ShopComponent implements OnInit {
   getCardOfUser(): void {
     // @ts-ignore
     this.ide = window.sessionStorage.getItem('auth-user').substring(209, 233);
-    this.shop.getCart(this.ide).subscribe(
+    console.log(this.user.id);
+    this.shop.getCart(this.user.id).subscribe(
       data => {
         this.cart = data;
         for (let i = 0 ; i < this.cart.length; i++) {
@@ -40,6 +42,18 @@ export class ShopComponent implements OnInit {
           this.quantity += this.cart[i].quantity;
         }
         localStorage.setItem('total', String(this.total));
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteItemInTheCard(id: string): void {
+    this.shop.deleteItemInTheCart(id).subscribe(
+      data => {
+        this.getCardOfUser();
+        location.reload();
       },
       error => {
         console.log(error);
